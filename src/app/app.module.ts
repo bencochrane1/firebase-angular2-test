@@ -14,14 +14,18 @@ import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable 
 
 import {LessonsService} from "./shared/model/lessons.service";
 
+import { RouterModule } from "@angular/router";
+import { routerConfig } from "./router.config"
+
 import * as firebase from 'firebase/app';
 import { HomeComponent } from './home/home.component';
 import { LessonsListComponent } from './lessons-list/lessons-list.component';
+import { TopMenuComponent } from './top-menu/top-menu.component';
 
 @NgModule({
   declarations: [ 
     AppComponent, 
-    HomeComponent, LessonsListComponent 
+    HomeComponent, LessonsListComponent, TopMenuComponent 
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,8 @@ import { LessonsListComponent } from './lessons-list/lessons-list.component';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routerConfig)
   ],
   providers: [
     LessonsService
